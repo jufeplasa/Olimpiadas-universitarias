@@ -1,18 +1,18 @@
 package model;
 
-public class Programador {
-	
+public class Programador implements Comparable<Programador> {
+
 	//atributos
 	private String nombre;
 	private String telefono;
 	private String direccion;
 	private String eMail;
-	
+
 	//relaciones
 	private Programador  izq;
-	
+
 	private Programador  der;
-	
+
 	public Programador(String nombre, String telefono, String direccion, String eMail) {
 		super();
 		this.nombre = nombre;
@@ -20,22 +20,12 @@ public class Programador {
 		this.direccion = direccion;
 		this.eMail = eMail;
 	}
-	
-	public int compareTO(Programador aux) {
-		return 0;
-	}
-	
-	public Programador getIzq() {
-		return izq;
-	}
+
 
 	public void setIzq(Programador izq) {
 		this.izq = izq;
 	}
 
-	public Programador getDer() {
-		return der;
-	}
 
 	public void setDer(Programador der) {
 		this.der = der;
@@ -53,21 +43,20 @@ public class Programador {
 	public String dareMail() {
 		return eMail;
 	}
-	
+
 	public boolean esHoja() {
 		return true;
 	}
-	
+
 	public Programador darMenor(){
-		return null;
-		
+		return  izq;
 	}
-	
+
 	public Programador darMayor(){
-		return null;
-		
+		return der;
+
 	}
-	
+
 	public int darAltura() {
 		return 0;
 	}
@@ -75,20 +64,14 @@ public class Programador {
 	public int darPeso() {
 		return 0;
 	}
-	
-	public void insertar(Programador np) {
-		
-	}
-	
-	public Programador buscar(String nombre) {
-		return null;
-	}
-	
-	public Programador eliminar (String nombre) {
-		return null;
-	}
+
 	
 	public void inOrder() {
-		
+
+	}
+
+	@Override
+	public int compareTo(Programador o) {
+		return nombre.compareToIgnoreCase(o.darNombre());
 	}
 }
